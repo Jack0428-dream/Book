@@ -19,6 +19,7 @@ function addBookToLibrary(objTitle, objAuthor, objPages, objRead) {
 
 addBookToLibrary("Harry Potter", "J.K. Rolling", "45", "read");
 addBookToLibrary("The art of Love", "Erich From", "43", "read");
+addBookToLibrary("What I talk about when I talk about running", "Harukami", "45", "read")
 
 const container = document.querySelector(".container");
 
@@ -69,11 +70,33 @@ function makeCard() {
         this["card"+i].appendChild(this["read"+i]);
 
         this["title"+i].textContent = myLibrary[i].title;
-        this["author"+i].textContent = myLibrary[i].author;
-        this["pages"+i].textContent = myLibrary[i].pages;
+        this["author"+i].textContent = "by "+ myLibrary[i].author;
+        this["pages"+i].textContent = myLibrary[i].pages+"pages";
         this["read"+i].textContent = myLibrary[i].read;
     }
 };
 
 makeCard();
+
+const titlein = document.querySelector("#input");
+const authorin = document.querySelector("#author");
+const pagesin = document.querySelector("#pages");
+const readin = document.querySelector("#read");
+const submit = document.querySelector("#submit")
+submit.addEventListener("click", addCard);
+
+function addCard(event) {
+    let readval = "";
+    if (readin == true) {
+        readval = "read"
+    } else {
+        readval = "not read yet"
+    }
+    let tvalue = titlein.value;
+    let avalue = authorin.value;
+    let pvalue = pagesin.vaule;
+    addBookToLibrary(tvalue, avalue, pvalue, readval);
+    makeCard();
+    console.log(tvalue);
+}
 
