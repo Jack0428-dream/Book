@@ -45,8 +45,12 @@ body {
     border-radius: 5px;
     display: grid;
     grid-template-columns: repeat(5, minmax(90px, 1fr));
-    grid-template-rows: repeat(4, minmax(70px, 1fr));
+    grid-template-rows: repeat(3, minmax(70px, 1fr));
     z-index: -1;
+}
+
+dialog:not([open]) {
+    display: none;
 }
 
 ::backdrop {
@@ -77,4 +81,8 @@ body {
     align-items: center;
     border-radius: 15px;
     border: 2px solid black;
+}
+
+.overlay {
+    pointer-events: none;
 }

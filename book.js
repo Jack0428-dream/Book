@@ -64,7 +64,7 @@ function makeCard() {
             this["author"+i] = document.createElement("p");
             this["pages"+i] = document.createElement("p");
             this["read"+i] = document.createElement("p");
-            this["card"+i].setAttribute("data-id", myLibrary[i].id);
+            this["card"+i].setAttribute(`data-id`, myLibrary[i].id);
 
             container.appendChild(this["card"+i]);
             this["card"+i].appendChild(this["title"+i]);
@@ -86,7 +86,7 @@ function makeCard() {
             this["author"+i] = document.createElement("p");
             this["pages"+i] = document.createElement("p");
             this["read"+i] = document.createElement("p");
-            this["card"+i].setAttribute("data-id", myLibrary[i].id);
+            this["card"+i].setAttribute(`data-id`, myLibrary[i].id);
 
             container.appendChild(this["card"+i]);
             this["card"+i].appendChild(this["title"+i]);
@@ -147,3 +147,13 @@ closeButton.addEventListener("click", () => {
 // to remove it we will use event listenter click with remove child
 // what we need to do is how to make a button inside the card
 
+const cards = document.querySelectorAll("[data-id]");
+
+cards.forEach((card) =>  {
+    const rmbutton = document.createElement("button");
+    card.appendChild(rmbutton);
+    rmbutton.textContent = "Remove";
+    rmbutton.addEventListener("click", () => {
+        console.log("Remove button clicked")
+    })
+})
