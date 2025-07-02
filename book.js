@@ -121,10 +121,20 @@ function addCard(event) {
     let pvalue = parseInt(pagesin.value);
     addBookToLibrary(tvalue, avalue, pvalue, readval);
     makeCard();
-    titlein.textContent = "";
-    authorin.textContent = "";
-    pagesin.textContent = "";
+    titlein.value = "";
+    authorin.value = "";
+    pagesin.value = "";
     readin.checked = false;
 }
 
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog button");
 
+showButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+closeButton.addEventListener("click", () => {
+    dialog.close();
+})
