@@ -12,15 +12,23 @@ body {
 }
 
 .sidebar {
+    box-sizing: border-box;
+    background-image: url(asset/hannah-grace-Los9FHOLZfo-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100%;
     width: 100%;
-    background-color: aquamarine;
+    border-radius: 5px;
+    border: 5px solid #502e1e;
 }
 
 .container {
+    background-image: url(asset/k8-qX1d8KT18kk-unsplash.jpg);
+    opacity: 0.7;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    background-color: aqua;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(70px, 1fr));
