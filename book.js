@@ -55,25 +55,49 @@ read.textContent = myLibrary[0].read;
 // then make a classlist with the 'i' so that I can get an access 
 // to style them
 
+let first = true;
 function makeCard() {
-    for(let i = 0; i < myLibrary.length; i++) {
-        this["card"+i] = document.createElement("div");
-        this["title"+i] = document.createElement("p");
-        this["author"+i] = document.createElement("p");
-        this["pages"+i] = document.createElement("p");
-        this["read"+i] = document.createElement("p");
+    if (first == true) {
+        for(let i = 0; i < myLibrary.length; i++) {
+            this["card"+i] = document.createElement("div");
+            this["title"+i] = document.createElement("p");
+            this["author"+i] = document.createElement("p");
+            this["pages"+i] = document.createElement("p");
+            this["read"+i] = document.createElement("p");
 
-        container.appendChild(this["card"+i]);
-        this["card"+i].appendChild(this["title"+i]);
-        this["card"+i].appendChild(this["author"+i]);
-        this["card"+i].appendChild(this["pages"+i]);
-        this["card"+i].appendChild(this["read"+i]);
+            container.appendChild(this["card"+i]);
+            this["card"+i].appendChild(this["title"+i]);
+            this["card"+i].appendChild(this["author"+i]);
+            this["card"+i].appendChild(this["pages"+i]);
+            this["card"+i].appendChild(this["read"+i]);
 
-        this["title"+i].textContent = myLibrary[i].title;
-        this["author"+i].textContent = "by "+ myLibrary[i].author;
-        this["pages"+i].textContent = myLibrary[i].pages+"pages";
-        this["read"+i].textContent = myLibrary[i].read;
+            this["title"+i].textContent = myLibrary[i].title;
+            this["author"+i].textContent = "by "+ myLibrary[i].author;
+            this["pages"+i].textContent = myLibrary[i].pages+"pages";
+            this["read"+i].textContent = myLibrary[i].read;
+        }
+        first = false;
+    } else if (first == false) {
+        for(let i = myLibrary.length-1; i < myLibrary.length; i++) {
+            this["card"+i] = document.createElement("div");
+            this["title"+i] = document.createElement("p");
+            this["author"+i] = document.createElement("p");
+            this["pages"+i] = document.createElement("p");
+            this["read"+i] = document.createElement("p");
+
+            container.appendChild(this["card"+i]);
+            this["card"+i].appendChild(this["title"+i]);
+            this["card"+i].appendChild(this["author"+i]);
+            this["card"+i].appendChild(this["pages"+i]);
+            this["card"+i].appendChild(this["read"+i]);
+
+            this["title"+i].textContent = myLibrary[i].title;
+            this["author"+i].textContent = "by "+ myLibrary[i].author;
+            this["pages"+i].textContent = myLibrary[i].pages+"pages";
+            this["read"+i].textContent = myLibrary[i].read;
+        }
     }
+
 };
 
 makeCard();
@@ -87,7 +111,7 @@ submit.addEventListener("click", addCard);
 
 function addCard(event) {
     let readval = "";
-    if (readin == true) {
+    if (readin.checked == true) {
         readval = "read"
     } else {
         readval = "not read yet"
@@ -97,7 +121,10 @@ function addCard(event) {
     let pvalue = parseInt(pagesin.value);
     addBookToLibrary(tvalue, avalue, pvalue, readval);
     makeCard();
-    console.log(pvalue);
+    titlein.textContent = "";
+    authorin.textContent = "";
+    pagesin.textContent = "";
+    readin.checked = false;
 }
 
 
