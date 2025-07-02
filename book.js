@@ -78,7 +78,7 @@ function makeCard() {
 
 makeCard();
 
-const titlein = document.querySelector("#input");
+const titlein = document.querySelector("#title");
 const authorin = document.querySelector("#author");
 const pagesin = document.querySelector("#pages");
 const readin = document.querySelector("#read");
@@ -94,9 +94,10 @@ function addCard(event) {
     }
     let tvalue = titlein.value;
     let avalue = authorin.value;
-    let pvalue = pagesin.vaule;
+    let pvalue = parseInt(pagesin.value);
     addBookToLibrary(tvalue, avalue, pvalue, readval);
     makeCard();
-    console.log(tvalue);
+    console.log(pvalue);
 }
+
 
