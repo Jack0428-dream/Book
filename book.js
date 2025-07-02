@@ -75,6 +75,7 @@ function makeCard() {
             this["author"+i].textContent = "by "+ myLibrary[i].author;
             this["pages"+i].textContent = myLibrary[i].pages+"pages";
             this["read"+i].textContent = myLibrary[i].read;
+            this["card"+i].setAttribute("style", "background-color: red; display: flex; flex-direction: column; align-items: center; border-radius: 15px; border: 2px solid black; box-sizing: border-box;")
         }
         first = false;
     } else if (first == false) {
@@ -95,9 +96,11 @@ function makeCard() {
             this["author"+i].textContent = "by "+ myLibrary[i].author;
             this["pages"+i].textContent = myLibrary[i].pages+"pages";
             this["read"+i].textContent = myLibrary[i].read;
+            this["card"+i].setAttribute("style", "background-color: red; display: flex; flex-direction: column; align-items: center; border-radius: 15px; border: 2px solid black; box-sizing: border-box;")
         }
     }
 
+    
 };
 
 makeCard();
