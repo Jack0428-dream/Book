@@ -7,4 +7,11 @@ Used crypto.randomUUID to make and save unique id for book object
 
 3. Used 'for loop' to loops through the array and displays each book on the page with forEach()
 
-4. Make a dialog that show and close with buttons, and link with other functions
+4. Make a dialog that show and close with buttons, and link with other functions, show & close dialog with event
+
+5. add remove to the card or the display so that when user wants to remove it they can remove from the library
+5-1 mistakes 
+1) I used id a lot to the card. so i changed to class
+2) my remove logic wasn't dynamic so i have to put this logic inside the makeCard() so the remove button will activate even when user put new card on the display
+3) container.removeChild(card) always removes the same card
+→ Because const card = document.querySelector("#card") always targets the first card, not the one associated with the button clicked.

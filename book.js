@@ -30,16 +30,26 @@ function makeCard() {
             const author = document.createElement("p");
             const pages = document.createElement("p");
             const read = document.createElement("p");
+            const rmbutton = document.createElement("button");
 
             card.appendChild(title);
             card.appendChild(author);
             card.appendChild(pages);
             card.appendChild(read);
+            card.appendChild(rmbutton);
 
             title.textContent = book.title;
             author.textContent = book.author;
             pages.textContent = book.pages;
             read.textContent = book.read;
+            rmbutton.textContent = "Remove"
+            card.setAttribute("data-id",book.id);
+
+            rmbutton.addEventListener("click", () => {
+                if(book.id == card.dataset.id) {
+                    container.removeChild(card);
+                }
+            })
         });
         first = false;
     } else if (first == false) {
@@ -50,19 +60,28 @@ function makeCard() {
             const author = document.createElement("p");
             const pages = document.createElement("p");
             const read = document.createElement("p");
+            const rmbutton = document.createElement("button");
 
             card.appendChild(title);
             card.appendChild(author);
             card.appendChild(pages);
             card.appendChild(read);
+            card.appendChild(rmbutton);
 
             title.textContent = myLibrary[i].title;
             author.textContent = myLibrary[i].author;
             pages.textContent = myLibrary[i].pages;
-            read.textContent = myLibrary[i].read;            
+            read.textContent = myLibrary[i].read;
+            rmbutton.textContent = "Remove";
+            card.setAttribute("data-id",myLibrary[i].id);
+
+            rmbutton.addEventListener("click", () => {
+                if(myLibrary[i].id == card.dataset.id) {
+                    container.removeChild(card);
+                }                
+            })
         } 
     }
-
 };
 
 makeCard();
@@ -90,7 +109,11 @@ function addCard(event) {
     pagesin.value = "";
     readin.checked = false;
 }
-submit.addEventListener("click", addCard);
+submit.addEventListener("click", () => {
+    addCard();
+});
+
+
 submit.addEventListener("click", () =>{
     dialog.close();
 })
@@ -105,13 +128,4 @@ showButton.addEventListener("click", () => {
 
 closeButton.addEventListener("click", () => {
     dialog.close();
-})
-
-
-
-// add a button on card display that can remove the display.
-// to remove it we will use event listenter click with remove child
-// what we need to do is how to make a button inside the card
-
-const cards = document.querySelectorAll("[data-id]");
-
+});

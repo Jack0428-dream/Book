@@ -74,15 +74,11 @@ dialog:not([open]) {
     bottom: 40px;
 }
 
-.card1 {
+.container > div {
     background-color: red;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 15px;
     border: 2px solid black;
-}
-
-.overlay {
-    pointer-events: none;
 }
