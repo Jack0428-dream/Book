@@ -1,9 +1,8 @@
-1. Set up a Git repository for your project with skeleton HTML/CSS and JS files.
-2. All book objects store in an array
-2-1. Need a constructor for books
-2-2. Add a separate function to the script
-2-3. create a book from those arguments 
-2-4. store the new book objec into an array
-2-5. book object should have a unique id using crypto.randomUUID
-3. Write a function that loops through the array and displays each book on the page 
-3-1. display them in table or card
+Answers for Assignments
+
+1. Made the skeletons
+2. Made an array called myLibrary which will store book objects (made a function for book object constructor with (title, author, pages, read))
+Add separate addBookToLibarary function that takes arguments(objTitle, objAuthor, objPages, objRead) 
+Used crypto.randomUUID to make and save unique id for book object
+
+3. Used 'for loop' to loops through the array and displays each book on the page
