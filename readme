@@ -5,4 +5,6 @@ Answers for Assignments
 Add separate addBookToLibarary function that takes arguments(objTitle, objAuthor, objPages, objRead) 
 Used crypto.randomUUID to make and save unique id for book object
 
-3. Used 'for loop' to loops through the array and displays each book on the page
+3. Used 'for loop' to loops through the array and displays each book on the page with forEach()
+
+4. Make a dialog that show and close with buttons, and link with other functions

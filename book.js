@@ -72,7 +72,6 @@ const authorin = document.querySelector("#author");
 const pagesin = document.querySelector("#pages");
 const readin = document.querySelector("#read");
 const submit = document.querySelector("#submit")
-submit.addEventListener("click", addCard);
 
 function addCard(event) {
     let readval = "";
@@ -91,6 +90,10 @@ function addCard(event) {
     pagesin.value = "";
     readin.checked = false;
 }
+submit.addEventListener("click", addCard);
+submit.addEventListener("click", () =>{
+    dialog.close();
+})
 
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
@@ -103,6 +106,8 @@ showButton.addEventListener("click", () => {
 closeButton.addEventListener("click", () => {
     dialog.close();
 })
+
+
 
 // add a button on card display that can remove the display.
 // to remove it we will use event listenter click with remove child
