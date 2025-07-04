@@ -31,19 +31,35 @@ function makeCard() {
         const author = document.createElement("p");
         const pages = document.createElement("p");
         const read = document.createElement("p");
+        read.classList.add("read")
         const button = document.createElement("button");
-
         button.addEventListener("click", () => {
             myLibrary.splice(myLibrary.findIndex(item => item.id === book.id), 1);
             makeCard();
         })
+        const switchbox = document.createElement("p");
+        const label = document.createElement("label");
+        const swinput = document.createElement("input");
+        const swspan = document.createElement("span");
+
 
         container.appendChild(card);
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(read);
-        card.appendChild(button);
+        switchbox.appendChild(button);
+        switchbox.appendChild(label);
+
+        switchbox.classList.add("switchbox");
+        label.classList.add("switch")
+        swinput.setAttribute("type", "checkbox");
+        swinput.classList.add("swinput")
+        swspan.classList.add("slider");
+        label.textContent = "Read Switch"
+        card.appendChild(switchbox);
+        label.appendChild(swinput);
+        label.appendChild(swspan);
 
         title.textContent = book.title;
         author.textContent = book.author;
@@ -51,6 +67,13 @@ function makeCard() {
         read.textContent = book.read;
         button.textContent = "Remove";
 
+        swinput.addEventListener("change", () => {
+            if ( this.checked == true) {
+                read.textContent = "Read";
+            } else if ( this.checked == false) {
+                read.textContent = "Not yet";
+            }
+        });
     });
 };
 
