@@ -69,6 +69,10 @@ submit.addEventListener("click", () => {
 
 
 submit.addEventListener("click", () =>{
+    titlein.textContent = "";
+    authorin.textContent = "";
+    pagesin.value = "";
+    readin.checked = false;
     dialog.close();
 });
 
