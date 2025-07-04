@@ -15,3 +15,10 @@ Used crypto.randomUUID to make and save unique id for book object
 2) my remove logic wasn't dynamic so i have to put this logic inside the makeCard() so the remove button will activate even when user put new card on the display
 3) container.removeChild(card) always removes the same card
 → Because const card = document.querySelector("#card") always targets the first card, not the one associated with the button clicked.
+
+7/4 change logic
+1. make the skeletons
+2. Make obj constructor and store objs in an array
+3. makeCard() function that will make displays
+4. addCard() function will add new book into array 
+5. removeCard() function will remove the book that user choose to remove with remove button.

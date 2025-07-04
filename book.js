@@ -25,22 +25,33 @@ function makeCard() {
 
     myLibrary.forEach(function(book) {
         const card = document.createElement("div");
+        card.classList.add("display");
+        card.setAttribute("data-id", book.id);
         const title = document.createElement("p");
         const author = document.createElement("p");
         const pages = document.createElement("p");
         const read = document.createElement("p");
+        const button = document.createElement("button");
+
+        button.addEventListener("click", () => {
+            myLibrary.splice(myLibrary.findIndex(item => item.id === book.id), 1);
+            makeCard();
+        })
 
         container.appendChild(card);
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(read);
+        card.appendChild(button);
 
         title.textContent = book.title;
         author.textContent = book.author;
         pages.textContent = book.pages;
         read.textContent = book.read;
-    })
+        button.textContent = "Remove";
+
+    });
 };
 
 makeCard();
@@ -69,8 +80,8 @@ submit.addEventListener("click", () => {
 
 
 submit.addEventListener("click", () =>{
-    titlein.textContent = "";
-    authorin.textContent = "";
+    titlein.value = "";
+    authorin.value = "";
     pagesin.value = "";
     readin.checked = false;
     dialog.close();

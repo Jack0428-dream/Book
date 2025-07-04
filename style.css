@@ -46,7 +46,6 @@ body {
     display: grid;
     grid-template-columns: repeat(5, minmax(90px, 1fr));
     grid-template-rows: repeat(3, minmax(70px, 1fr));
-    z-index: -1;
 }
 
 dialog:not([open]) {
