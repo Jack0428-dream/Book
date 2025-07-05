@@ -40,6 +40,13 @@ function makeCard() {
         const switchbox = document.createElement("p");
         const label = document.createElement("label");
         const swinput = document.createElement("input");
+        swinput.addEventListener("change", () => {
+            if (swinput.checked == true) {
+                read.textContent = "Read";
+            } else if (swinput.checked == false) {
+                read.textContent = "Not yet";
+            }
+        })
         const swspan = document.createElement("span");
 
 
@@ -67,13 +74,6 @@ function makeCard() {
         read.textContent = book.read;
         button.textContent = "Remove";
 
-        swinput.addEventListener("change", () => {
-            if ( this.checked == true) {
-                read.textContent = "Read";
-            } else if ( this.checked == false) {
-                read.textContent = "Not yet";
-            }
-        });
     });
 };
 
