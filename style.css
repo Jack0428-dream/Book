@@ -74,7 +74,7 @@ dialog:not([open]) {
 }
 
 .container > div {
-    background-color: red;
+    background-color: #e0a036;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,6 +82,9 @@ dialog:not([open]) {
     border: 2px solid black;
 }
 
+.display {
+    margin: 5px;
+}
 .switchbox {
     position: relative;
     margin-top: 0px;
