@@ -82,28 +82,68 @@ dialog:not([open]) {
     border: 2px solid black;
 }
 
-/* .switch {
+.switchbox {
+    position: relative;
+    margin-top: 0px;
+    padding-top: 0px;
+    bottom: 10px;
+}
+
+.remove {
+    position: relative;
+    right: 10px;
+}
+
+.switch {
     position: relative;
     display: inline-block;
     width: 30px;
     height: 17px;
-} */
+    top: 30px;
+}
 
-/* .swtich input{
+.swtich, .swinput{
     opacity: 0;
     width: 0;
     height: 0;
-} */
+}
 
-/* .slider {
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #54371f;
+    background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 17px;
-} */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #54371f;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #54371f;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+}

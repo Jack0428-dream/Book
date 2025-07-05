@@ -25,46 +25,40 @@ function makeCard() {
 
     myLibrary.forEach(function(book) {
         const card = document.createElement("div");
-        card.classList.add("display");
-        card.setAttribute("data-id", book.id);
+
         const title = document.createElement("p");
         const author = document.createElement("p");
         const pages = document.createElement("p");
         const read = document.createElement("p");
-        read.classList.add("read")
+
         const button = document.createElement("button");
-        button.addEventListener("click", () => {
-            myLibrary.splice(myLibrary.findIndex(item => item.id === book.id), 1);
-            makeCard();
-        })
         const switchbox = document.createElement("p");
         const label = document.createElement("label");
         const swinput = document.createElement("input");
-        swinput.addEventListener("change", () => {
-            if (swinput.checked == true) {
-                read.textContent = "Read";
-            } else if (swinput.checked == false) {
-                read.textContent = "Not yet";
-            }
-        })
         const swspan = document.createElement("span");
 
+        card.classList.add("display");
+        read.classList.add("read");
+        button.classList.add("remove");
+        switchbox.classList.add("switchbox");
+        label.classList.add("switch");
+        swinput.classList.add("swinput");
+        swspan.classList.add("slider");
+        
+        card.setAttribute("data-id", book.id);
+        swinput.setAttribute("type", "checkbox");
+        label.textContent = "Read Switch"
 
         container.appendChild(card);
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(read);
+        card.appendChild(switchbox);
+
         switchbox.appendChild(button);
         switchbox.appendChild(label);
 
-        switchbox.classList.add("switchbox");
-        label.classList.add("switch")
-        swinput.setAttribute("type", "checkbox");
-        swinput.classList.add("swinput")
-        swspan.classList.add("slider");
-        label.textContent = "Read Switch"
-        card.appendChild(switchbox);
         label.appendChild(swinput);
         label.appendChild(swspan);
 
@@ -74,6 +68,18 @@ function makeCard() {
         read.textContent = book.read;
         button.textContent = "Remove";
 
+        button.addEventListener("click", () => {
+            myLibrary.splice(myLibrary.findIndex(item => item.id === book.id), 1);
+            makeCard();
+        })
+
+        swinput.addEventListener("change", () => {
+            if (swinput.checked == true) {
+                read.textContent = "Read";
+            } else if (swinput.checked == false) {
+                read.textContent = "Not yet";
+            }
+        });
     });
 };
 
