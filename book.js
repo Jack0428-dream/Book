@@ -13,11 +13,6 @@ function addBookToLibrary(objTitle, objAuthor, objPages, objRead) {
     myLibrary.push(newBook);
 }
 
-
-addBookToLibrary("Harry Potter", "J.K. Rolling", "45", "read");
-addBookToLibrary("The art of Love", "Erich From", "43", "read");
-addBookToLibrary("The Hobbit", "Harukami", "45", "read")
-
 const container = document.querySelector(".container");
 
 function makeCard() {
