@@ -1,17 +1,28 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.id = crypto.randomUUID();
+class Library {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = crypto.randomUUID();
+    }
+
+    addBToL(bInfo) {
+        myLibrary.push(bInfo);
+    }
+    // when obj.addBToL(); 
+    // I want the information of object to store in myLibrary array
 }
 
-function addBookToLibrary(objTitle, objAuthor, objPages, objRead) {
-    const newBook = new Book(objTitle, objAuthor, objPages, objRead);
-    myLibrary.push(newBook);
-}
+let harry = new Library("Harry Potter", "J.K. Rolling", "45", "read");
+let art = new Library("The art of Love", "Erich Fromm", "284", "read" );
+let hobbit = new Library("The Hobbit", "Harukami", "732", "read");
+
+harry.addBToL(harry);
+art.addBToL(art);
+hobbit.addBToL(hobbit);
 
 const container = document.querySelector(".container");
 
@@ -94,7 +105,9 @@ function addCard() {
         addread = "Not yet"
     }; 
 
-    addBookToLibrary(titlein.value, authorin.value, parseInt(pagesin.value), addread);
+    // addBookToLibrary(titlein.value, authorin.value, parseInt(pagesin.value), addread);
+    const nBook = new Library(titlein.value, authorin.value, parseInt(pagesin.value), addread);
+    nBook.addBToL(nBook);
 }
 
 submit.addEventListener("click", () => {
