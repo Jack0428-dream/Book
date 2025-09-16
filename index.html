@@ -9,16 +9,16 @@
 </head>
 <body>
     <div class="sidebar">
-        <dialog closedby="any">
+        <dialog closedby="closerrequest">
             <button autofocus class="close">Close</button>
-            <form method="dialog">
+            <form method="dialog" id="form">
                 <fieldset class="fieldset">
                     <legend>My Library</legend>
                     <label for="title">*Title</label>
-                    <input type="text" id="title" name="title" required value="The Hobbit" >
+                    <input type="text" id="title" name="title" minlength="2" required>
 
                     <label for="author">*Author</label>
-                    <input type="text" id="author" name="author" required value="John Ronald">
+                    <input type="text" id="author" name="author" pattern="^[^\d].*" minlength="2" required>
 
                     <label for="pages">Pages</label>
                     <input type="number" id="pages" name="pages">
@@ -27,7 +27,7 @@
                         <input type="checkbox" id="read" name="read">
                     </div>
 
-                    <button id="submit"type="button">Submit</button>
+                    <button id="submit" type="submit">Submit</button>
                 </fieldset>
             </form>
         </dialog>

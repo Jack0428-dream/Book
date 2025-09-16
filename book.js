@@ -95,7 +95,8 @@ const titlein = document.querySelector("#title");
 const authorin = document.querySelector("#author");
 const pagesin = document.querySelector("#pages");
 const readin = document.querySelector("#read");
-const submit = document.querySelector("#submit")
+const submit = document.querySelector("#submit");
+const form = document.querySelector('#form');
 
 function addCard() {
     let addread = "";
@@ -110,13 +111,12 @@ function addCard() {
     nBook.addBToL(nBook);
 }
 
-submit.addEventListener("click", () => {
+form.addEventListener("submit", () => {
     addCard();
     makeCard();
 });
 
-
-submit.addEventListener("click", () =>{
+form.addEventListener("submit", () =>{
     titlein.value = "";
     authorin.value = "";
     pagesin.value = "";
@@ -135,3 +135,24 @@ showButton.addEventListener("click", () => {
 closeButton.addEventListener("click", () => {
     dialog.close();
 });
+
+// Validation 
+const title = document.getElementById('title');
+
+title.addEventListener('input', () => {
+    if (title.validity.tooShort) {
+        title.setCustomValidity('We are expecting more characters darling.')
+    } else {
+        title.setCustomValidity('');
+    }
+})
+
+const author = document.getElementById('author');
+
+author.addEventListener('input', () => {
+    if (author.validity.patternMismatch) {
+        author.setCustomValidity("It can't start with number or symbol.")
+    } else {
+        author.setCustomValidity('');
+    }    
+})
